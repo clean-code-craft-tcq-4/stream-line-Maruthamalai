@@ -12,8 +12,9 @@ using namespace std;
 bool writeDataToConsole(int pip[])
 {
   bool writeStatus = false;
-  char writeBuffer[1000];
-  memset(writeBuffer, 0, sizeof(writeBuffer));
+  char writeBuffer[550];
+  char tempBuffer[11];
+  memset(writeBuffer, '\0', sizeof(writeBuffer));
   vector<int> currentListInAmps = getCurrentListInAmps(AMP_MIN, AMP_MAX, WRITE_COUNT);
   vector<int> temperatureListInCelcious = getTemperatureInCelcious(TEMPERATURE_MIN_VALUE, TEMPERATURE_MAX_VALUE, WRITE_COUNT);
 
@@ -22,11 +23,12 @@ bool writeDataToConsole(int pip[])
     for (int counter = 0; counter < WRITE_COUNT; counter++)
     {
       //cout << currentListInAmps[counter] << ", " << temperatureListInCelcious[counter] << endl;
-      sprintf(writeBuffer, "%d , %d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
-      write(pip[1], writeBuffer, strlen(writeBuffer));
-      cout << strlen(writeBuffer);
+      memset(tempBuffer, '\0', sizeof(tempBuffer));
+      sprintf(tempBuffer, "%d , %d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
+      strcat(writeBuffer, tempBuffer);
     }
-
+    write(pip[1], writeBuffer, strlen(writeBuffer));
+    cout << strlen(writeBuffer);
     writeStatus = true;
   }
 
