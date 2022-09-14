@@ -14,7 +14,7 @@ using namespace std;
 
 int writeDataToConsole(int pip[])
 {
-  int writeStatus = 0;
+  int writeBuffSize = 0;
   char writeBuffer[550];
   memset(writeBuffer, '\0', sizeof(writeBuffer));
   vector<int> currentListInAmps = getCurrentListInAmps(AMP_MIN, AMP_MAX, WRITE_COUNT);
