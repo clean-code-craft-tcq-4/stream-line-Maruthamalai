@@ -2,6 +2,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #include "../batterySensors/chargeStatus/chargeStatus.hpp"
 #include "../batterySensors/temperature/temperature.hpp"
 #include <vector>
