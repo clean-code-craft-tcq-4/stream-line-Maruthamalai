@@ -13,7 +13,7 @@ int readDataFromConsole(int pip[], char readBuffer[])
     //char writeBuffer[1000];
     memset(readBuffer, 0, 500);
     read(pip[0], readBuffer, 450);
-    //cout<<writeBuffer;
+    cout<<readBuffer;
     //cout<<strlen(readBuffer);
     return strlen(readBuffer);
 }
