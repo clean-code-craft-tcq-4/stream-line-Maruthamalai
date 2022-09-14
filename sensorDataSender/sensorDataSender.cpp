@@ -10,6 +10,8 @@ using namespace std;
 bool writeDataToConsole()
 {
   bool writeStatus = false;
+  char writeBuffer[1000];
+  memset(writeBuffer, 0, sizeof(writeBuffer));
   vector<int> currentListInAmps = getCurrentListInAmps(AMP_MIN, AMP_MAX, WRITE_COUNT);
   vector<int> temperatureListInCelcious = getTemperatureInCelcious(TEMPERATURE_MIN_VALUE, TEMPERATURE_MAX_VALUE, WRITE_COUNT);
 
@@ -18,6 +20,8 @@ bool writeDataToConsole()
     for (int counter = 0; counter < WRITE_COUNT; counter++)
     {
       cout << currentListInAmps[counter] << ", " << temperatureListInCelcious[counter] << endl;
+      sprintf(writeBuffer, "%d , %d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
+      cout << writeBuffer;
     }
 
     writeStatus = true;
