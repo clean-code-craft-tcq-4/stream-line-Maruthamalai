@@ -6,6 +6,7 @@
 #include <vector>
 #include "sensorDataSender/sensorDataSender.hpp"
 #include "sensorDataReceiver/sensorDataReceiver.hpp"
+#include <cstring>
 
 using namespace std;
 
@@ -32,8 +33,10 @@ TEST_CASE("TestWriteStatus") {
 	      retStatus = writeDataToConsole(pip);
 	      REQUIRE(retStatus == true);  
 	   } else {
-		    readDataFromConsole(pip);
-	      //REQUIRE(retStatus == true);
+	      char readBuffer[500];
+	      int buffSize = readDataFromConsole(pip, readBuffer);
+	      cout<<"Test: "<<strlen(readBuffer);
+	      //REQUIRE(buffSize == 450);
 	   }
   }
 }
