@@ -25,6 +25,7 @@ TEST_CASE("TestCurrentSensorValues") {
 
 TEST_CASE("TestWriteStatus") {
     int writeBuffSize = 0;
+    int retStatus = 0;
     int pid, pip[2]; 
     retStatus = pipe(pip);	
     if (retStatus != -1)
