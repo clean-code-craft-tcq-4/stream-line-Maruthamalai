@@ -1,6 +1,4 @@
 #include <cstring>
-//#include <cstdio>
-//#include <cstdlib>
 #include <iostream>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -58,18 +56,17 @@ void splitBmsData(int bmsDataList[], int currList[], int tempList[]) {
 
 void bmsDataCharToInt(char writeBuffer[], int buffSize, int bmsDataList[]) {
   int tempArrIndex;
-  //int dataIndex =0;
   int currIndex=0, tempIndex=50;
   for(int index=0; index<buffSize; currIndex++, tempIndex++) {
     char temp[4];
     memset(temp, '\0', sizeof(temp));
     tempArrIndex = 0;
-    while((writeBuffer[index]!=',') && (writeBuffer[index]!='\n')) {
+    while((writeBuffer[index]!=',') && (writeBuffer[index]!='\t')) {
       temp[tempArrIndex] = writeBuffer[index];
       tempArrIndex++;
       index++;
     }
-    index++;
+    index+=2;
     bmsDataList[currIndex] = stoi(temp);
     cout<<bmsDataList[currIndex]<<"\t";
     memset(temp, '\0', sizeof(temp));
