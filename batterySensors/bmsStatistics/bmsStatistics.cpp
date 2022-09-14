@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include "bmsStatistics.hpp"
 
 using namespace std;
 
@@ -55,7 +56,7 @@ void bmsDataCharToInt(char writeBuffer[], int buffSize, int bmsDataList[]) {
   int tempArrIndex;
   //int dataIndex =0;
   int currIndex=0, tempIndex=50;
-  for(int index=0; index<bufSize; currIndex++, tempIndex++) {
+  for(int index=0; index<buffSize; currIndex++, tempIndex++) {
     char temp[4];
     memset(temp, '\0', sizeof(temp));
     tempArrIndex = 0;
