@@ -1,6 +1,4 @@
 #include <cstring>
-//#include <cstdio>
-//#include <cstdlib>
 #include <iostream>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -10,10 +8,8 @@ using namespace std;
 
 int readDataFromConsole(int pip[], char readBuffer[])
 {
-    //char writeBuffer[1000];
     memset(readBuffer, 0, 500);
     read(pip[0], readBuffer, 450);
     cout<<readBuffer;
-    //cout<<strlen(readBuffer);
     return strlen(readBuffer);
 }
