@@ -41,7 +41,11 @@ void movingAvgOfBmsData(int currList[], int tempList[]) {
     currAvg |= currList[index];
     tempAvg |= tempList[index];
   }
-  cout<<"Moving Average of last 5 values:\n"<<"Current Average: %d\n"<<currAvg<<"Temperature Average: %d\n"<<tempAvg;
+  currAvg /=5;
+  tempAvg /=5;
+  cout<<"Moving Average of last 5 values:\n";
+  cout<<"Current Average: "<<currAvg<<"\n";
+  cout<<"Temperature Average: "<<tempAvg<<"\n";
 }
 
 void splitBmsData(int bmsDataList[], int currList[], int tempList[]) {
@@ -67,7 +71,7 @@ void bmsDataCharToInt(char writeBuffer[], int buffSize, int bmsDataList[]) {
     }
     index++;
     bmsDataList[currIndex] = stoi(temp);
-    cout<<bmsDataList[currIndex]<<"\n";
+    cout<<bmsDataList[currIndex]<<"\t";
     memset(temp, '\0', sizeof(temp));
     tempArrIndex = 0;
     while(writeBuffer[index]!='\n') {
@@ -89,6 +93,8 @@ void bmsDataStatistics(char writeBuffer[], int buffSize) {
   splitBmsData(bmsDataList,currList, tempList);
   movingAvgOfBmsData(currList, tempList);
   sortBmsData(currList, tempList);
-  cout<<"Minimum Current: %d\n"<<minBmsData(currList)<<"Maximum Current: %d\n"<<maxBmsData(currList);
-  cout<<"Minimum Temperature: %d\n"<<minBmsData(tempList)<<"Maximum Temperature: %d\n"<<maxBmsData(tempList);
+  cout<<"Minimum Current: "<<minBmsData(currList)<<"\n";
+  cout<<"Maximum Current: "<<maxBmsData(currList)<<"\n";
+  cout<<"Minimum Temperature: "<<minBmsData(tempList)<<"\n";
+  cout<<"Maximum Temperature: "<<maxBmsData(tempList)<<"\n";
 }
