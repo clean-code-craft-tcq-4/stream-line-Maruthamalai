@@ -8,12 +8,12 @@
 
 using namespace std;
 
-int readDataFromConsole(int pip[], char writeBuffer[])
+int readDataFromConsole(int pip[], char readBuffer[])
 {
     //char writeBuffer[1000];
-    memset(writeBuffer, 0, 500);
-    read(pip[0], writeBuffer, 450);
+    memset(readBuffer, 0, 500);
+    read(pip[0], readBuffer, 450);
     //cout<<writeBuffer;
-    cout<<strlen(writeBuffer);
-    return strlen(writeBuffer);
+    //cout<<strlen(readBuffer);
+    return strlen(readBuffer);
 }
