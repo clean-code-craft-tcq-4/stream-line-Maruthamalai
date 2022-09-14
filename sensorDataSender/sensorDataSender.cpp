@@ -1,4 +1,5 @@
-
+#include <cstring>
+#include <cstdio>
 #include <iostream>
 #include "../batterySensors/chargeStatus/chargeStatus.hpp"
 #include "../batterySensors/temperature/temperature.hpp"
