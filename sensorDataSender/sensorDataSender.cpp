@@ -12,9 +12,9 @@
 
 using namespace std;
 
-bool writeDataToConsole(int pip[])
+int writeDataToConsole(int pip[])
 {
-  bool writeStatus = false;
+  int writeStatus = 0;
   char writeBuffer[550];
   memset(writeBuffer, '\0', sizeof(writeBuffer));
   vector<int> currentListInAmps = getCurrentListInAmps(AMP_MIN, AMP_MAX, WRITE_COUNT);
@@ -31,9 +31,9 @@ bool writeDataToConsole(int pip[])
       strcat(writeBuffer, tempBuffer);
     }
     write(pip[1], writeBuffer, strlen(writeBuffer));
-    cout << strlen(writeBuffer);
-    writeStatus = true;
+    //cout << strlen(writeBuffer);
+    writeBuffSize = strlen(writeBuffer);
   }
 
-  return writeStatus;
+  return writeBuffSize;
 }
