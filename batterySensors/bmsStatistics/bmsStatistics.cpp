@@ -68,7 +68,7 @@ void bmsDataCharToInt(char writeBuffer[], int buffSize, int bmsDataList[]) {
     }
     index+=2;
     bmsDataList[currIndex] = stoi(temp);
-    cout<<bmsDataList[currIndex]<<"\t";
+    //cout<<bmsDataList[currIndex]<<"\t";
     memset(temp, '\0', sizeof(temp));
     tempArrIndex = 0;
     while(writeBuffer[index]!='\n') {
@@ -78,7 +78,7 @@ void bmsDataCharToInt(char writeBuffer[], int buffSize, int bmsDataList[]) {
     }
     index++;
     bmsDataList[tempIndex] = stoi(temp);
-    cout<<bmsDataList[tempIndex]<<"\n";
+    //cout<<bmsDataList[tempIndex]<<"\n";
   }
 }
 
