@@ -37,7 +37,6 @@ TEST_CASE("TestWriteStatus") {
         } else {
             char readBuffer[500];
             int readBuffSize = readDataFromConsole(pip, readBuffer);
-            //cout<<"Test: "<<strlen(readBuffer);
             REQUIRE(readBuffSize != 0);
             bmsDataStatistics(readBuffer, strlen(readBuffer));
         }
