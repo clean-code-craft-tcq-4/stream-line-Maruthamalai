@@ -3,6 +3,7 @@
 #include <iostream>
 #include "batterySensors/chargeStatus/chargeStatus.hpp"
 #include "batterySensors/temperature/temperature.hpp"
+#include "batterySensors/bmsStatistics/bmsStatistics.hpp"
 #include <vector>
 #include "sensorDataSender/sensorDataSender.hpp"
 #include "sensorDataReceiver/sensorDataReceiver.hpp"
@@ -23,23 +24,23 @@ TEST_CASE("TestCurrentSensorValues") {
 }
 
 TEST_CASE("TestWriteStatus") {
-  int retStatus = true;
-	int pid, pip[2]; 
-	retStatus = pipe(pip);	
-	if (retStatus != -1)
-	{
-	   pid = fork();
-	   if (pid == 0) {
-	      retStatus = writeDataToConsole(pip);
-	      REQUIRE(retStatus == true);  
-	   } else {
-	      char readBuffer[500];
-	      int buffSize = readDataFromConsole(pip, readBuffer);
-	      cout<<"Test: "<<strlen(readBuffer);
-	      //REQUIRE(buffSize == 450);
-	      bmsDataStatistics(readBuffer, strlen(readBuffer));
-	   }
-  }
+    int retStatus = true;
+    int pid, pip[2]; 
+    retStatus = pipe(pip);	
+    if (retStatus != -1)
+    {
+        pid = fork();
+        if (pid == 0) {
+            retStatus = writeDataToConsole(pip);
+            REQUIRE(retStatus == true);  
+        } else {
+            char readBuffer[500];
+            int readBuffSize = readDataFromConsole(pip, readBuffer);
+            //cout<<"Test: "<<strlen(readBuffer);
+            REQUIRE(readBuffSize == 319);
+            bmsDataStatistics(readBuffer, strlen(readBuffer));
+        }
+    }
 }
 
 
