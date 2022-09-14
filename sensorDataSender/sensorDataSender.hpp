@@ -2,5 +2,5 @@
 
 #define WRITE_COUNT  (50)
 
-bool writeDataToConsole(int pip[]);
+int writeDataToConsole(int pip[]);
 
