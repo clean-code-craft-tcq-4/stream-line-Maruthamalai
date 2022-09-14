@@ -11,10 +11,12 @@
 
 using namespace std;
 
-void readDataFromConsole(int pip[])
+int readDataFromConsole(int pip[], char writeBuffer[])
 {
-    char writeBuffer[1000];
-    memset(writeBuffer, 0, sizeof(writeBuffer));
+    //char writeBuffer[1000];
+    memset(writeBuffer, 0, 500);
     read(pip[0], writeBuffer, 450);
-    cout<<writeBuffer;
+    //cout<<writeBuffer;
+    cout<<strlen(writeBuffer);
+    return strlen(writeBuffer);
 }
