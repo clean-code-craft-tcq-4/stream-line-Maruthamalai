@@ -8,7 +8,7 @@
 
 using namespace std;
 
-bool writeDataToConsole()
+bool writeDataToConsole(int pip[])
 {
   bool writeStatus = false;
   char writeBuffer[1000];
@@ -20,9 +20,10 @@ bool writeDataToConsole()
   {
     for (int counter = 0; counter < WRITE_COUNT; counter++)
     {
-      cout << currentListInAmps[counter] << ", " << temperatureListInCelcious[counter] << endl;
+      //cout << currentListInAmps[counter] << ", " << temperatureListInCelcious[counter] << endl;
       sprintf(writeBuffer, "%d , %d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
-      cout << writeBuffer;
+      write(pip[1], writeBuffer, strlen(writeBuffer));
+      cout << strlen(writeBuffer);
     }
 
     writeStatus = true;
