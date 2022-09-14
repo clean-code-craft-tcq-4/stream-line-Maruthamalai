@@ -1,6 +1,6 @@
 #include <cstring>
 #include <cstdio>
-#include <unistd>
+#include <cstdlib>
 #include <iostream>
 #include "../batterySensors/chargeStatus/chargeStatus.hpp"
 #include "../batterySensors/temperature/temperature.hpp"
