@@ -24,20 +24,20 @@ TEST_CASE("TestCurrentSensorValues") {
 }
 
 TEST_CASE("TestWriteStatus") {
-    int retStatus = true;
+    int writeBuffSize = 0;
     int pid, pip[2]; 
     retStatus = pipe(pip);	
     if (retStatus != -1)
     {
         pid = fork();
         if (pid == 0) {
-            retStatus = writeDataToConsole(pip);
-            REQUIRE(retStatus == true);  
+            writeBuffSize = writeDataToConsole(pip);
+            REQUIRE(writeBuffSize != 0);  
         } else {
             char readBuffer[500];
             int readBuffSize = readDataFromConsole(pip, readBuffer);
             //cout<<"Test: "<<strlen(readBuffer);
-            REQUIRE(readBuffSize == 319);
+            REQUIRE(readBuffSize == writeBuffSize);
             bmsDataStatistics(readBuffer, strlen(readBuffer));
         }
     }
