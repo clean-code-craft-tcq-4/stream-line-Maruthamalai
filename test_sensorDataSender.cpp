@@ -21,8 +21,20 @@ TEST_CASE("TestCurrentSensorValues") {
 }
 
 TEST_CASE("TestWriteStatus") {
-  
-  REQUIRE(writeDataToConsole() == true);
+  int retStatus = true;
+	int pid, pip[2]; 
+	retStatus = pipe(pip);	
+	if (retStatus != -1)
+	{
+	   pid = fork();
+	   if (pid == 0) {
+	      retStatus = writeDataToConsole(pip);
+	      REQUIRE(retStatus == true);  
+	   } else {
+		    readDataFromConsole(pip);
+	      //REQUIRE(retStatus == true);
+	   }
+  }
 }
 
 
