@@ -27,7 +27,7 @@ bool writeDataToConsole(int pip[])
       char tempBuffer[11];
       //cout << currentListInAmps[counter] << ", " << temperatureListInCelcious[counter] << endl;
       memset(tempBuffer, '\0', sizeof(tempBuffer));
-      sprintf(tempBuffer, "%d , %d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
+      sprintf(tempBuffer, "%d,%d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
       strcat(writeBuffer, tempBuffer);
     }
     write(pip[1], writeBuffer, strlen(writeBuffer));
