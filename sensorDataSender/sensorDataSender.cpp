@@ -31,7 +31,7 @@ int writeDataToConsole(int pip[])
       strcat(writeBuffer, tempBuffer);
     }
     write(pip[1], writeBuffer, strlen(writeBuffer));
-    //cout << strlen(writeBuffer);
+    cout << writeBuffer;
     writeBuffSize = strlen(writeBuffer);
   }
 
