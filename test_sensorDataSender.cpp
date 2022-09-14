@@ -5,6 +5,7 @@
 #include "batterySensors/temperature/temperature.hpp"
 #include <vector>
 #include "sensorDataSender/sensorDataSender.hpp"
+#include "sensorDataSender/sensorDataReceiver.hpp"
 
 using namespace std;
 
