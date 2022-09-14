@@ -1,3 +1,3 @@
 #pragma once
 
-void readDataFromConsole(int pip[]);
+int readDataFromConsole(int pip[], char writeBuffer[]);
