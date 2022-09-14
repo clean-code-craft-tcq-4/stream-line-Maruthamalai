@@ -37,6 +37,7 @@ TEST_CASE("TestWriteStatus") {
 	      int buffSize = readDataFromConsole(pip, readBuffer);
 	      cout<<"Test: "<<strlen(readBuffer);
 	      //REQUIRE(buffSize == 450);
+	      bmsDataStatistics(readBuffer, strlen(readBuffer));
 	   }
   }
 }
