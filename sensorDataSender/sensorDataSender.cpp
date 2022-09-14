@@ -1,6 +1,6 @@
 #include <cstring>
-#include <cstdio>
-#include <cstdlib>
+//#include <cstdio>
+//#include <cstdlib>
 #include <iostream>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -16,7 +16,6 @@ bool writeDataToConsole(int pip[])
 {
   bool writeStatus = false;
   char writeBuffer[550];
-  char tempBuffer[11];
   memset(writeBuffer, '\0', sizeof(writeBuffer));
   vector<int> currentListInAmps = getCurrentListInAmps(AMP_MIN, AMP_MAX, WRITE_COUNT);
   vector<int> temperatureListInCelcious = getTemperatureInCelcious(TEMPERATURE_MIN_VALUE, TEMPERATURE_MAX_VALUE, WRITE_COUNT);
@@ -25,6 +24,7 @@ bool writeDataToConsole(int pip[])
   {
     for (int counter = 0; counter < WRITE_COUNT; counter++)
     {
+      char tempBuffer[11];
       //cout << currentListInAmps[counter] << ", " << temperatureListInCelcious[counter] << endl;
       memset(tempBuffer, '\0', sizeof(tempBuffer));
       sprintf(tempBuffer, "%d , %d\n", currentListInAmps[counter], temperatureListInCelcious[counter]);
